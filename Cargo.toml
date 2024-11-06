@@ -1,0 +1,22 @@
+[package]
+name = "vf2_bootloader"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+lego_spec = { git = "https://github.com/lego-os/lego_spec", features = [
+    "driver",
+    "block",
+    "char",
+    "arch",
+    "rv_mch",
+    "rv_time",
+], branch = "main" }
+gpt = { git = "https://github.com/lego-os/gpt", branch = "main" }
+uart8250 = { git = "https://github.com/lego-os/uart8250.git", branch = "main" }
+dw_sd = { git = "https://github.com/lego-os/dw_sd", branch = "main" }
+log = "0"
+byteorder = { version = "1", default-features = false }
+
+[profile.release]
+opt-level = 3
